@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+tmpFileName = "/tmp/COMMIT_MSG"
+
+exit(0) if !File.exists?(tmpFileName)
+
+last_commit_msg = open(tmpFileName).read.chomp
+commit_msg = open(ARGV[0]).read
+
+open(ARGV[0], "w") do |f|
+    f.puts last_commit_msg + commit_msg
+end
+
+FileUtils.rm(tmpFileName)

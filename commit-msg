@@ -6,6 +6,8 @@ log = File.readlines(ARGV[0]).first
 
 exit 0 if log =~ /#\d+/
 
+File.open('/tmp/COMMIT_MSG', 'w').puts log
+
 puts <<-EOS
  
 ##################################################################
