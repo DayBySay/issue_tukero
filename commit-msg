@@ -5,6 +5,7 @@
 log = File.readlines(ARGV[0]).first
 
 exit 0 if log =~ /#\d+/
+exit 0 if log =~ /merge/i
 
 File.open('/tmp/COMMIT_MSG', 'w').puts log
 
